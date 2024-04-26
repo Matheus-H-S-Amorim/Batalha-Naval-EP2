@@ -18,6 +18,16 @@ def cria_mapa(N):
 
     return matriz
 
+# Verifica se acabou os N's do Mapa 
+def foi_derrotado(matriz): 
+    for linha in matriz: 
+        for item in linha: 
+            if item=="N": 
+                return False 
+    return True 
+
+    
+    
 
 
 
