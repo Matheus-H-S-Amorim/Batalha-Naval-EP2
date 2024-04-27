@@ -33,3 +33,11 @@ for pais,infos in PAISES.items():
 
 # Jogador escolhe numero de pais 
 num_pais_jogador= int(input("Qual o número da nação da sua frota?: "))
+
+# Transforma Dicionario em lista 
+lista_paises = list(PAISES)
+pais_jogador = lista_paises[num_pais_jogador-1]
+
+# Informa pais escolhido e instrui jogador a alocar seus navios 
+print("Você escolheu a nação {0}".format(pais_jogador))
+print("Agora é a sua vez de alocar os seus navios de guerra!")
