@@ -22,7 +22,7 @@ paisSorteado = random.choice(list(PAISES))
 print("Computador está alocando os navios de guerra do país {0}...".format(paisSorteado))
 print("Computador já está em posição de batalha")
 
-# Printar dicionario de paises e seus navios com delay de 1 segundo
+# Printar dicionario de paises 
 i = 1 
 for pais,infos in PAISES.items(): 
     print(str(i)+":",pais)
@@ -30,3 +30,6 @@ for pais,infos in PAISES.items():
         print("  ",blocos,navio)
     print("")
     i+=1
+
+# Jogador escolhe numero de pais 
+num_pais_jogador= input("Qual o número da nação da sua frota?: ")
