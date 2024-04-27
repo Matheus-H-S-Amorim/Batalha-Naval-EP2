@@ -32,4 +32,4 @@ for pais,infos in PAISES.items():
     i+=1
 
 # Jogador escolhe numero de pais 
-num_pais_jogador= input("Qual o número da nação da sua frota?: ")
+num_pais_jogador= int(input("Qual o número da nação da sua frota?: "))
