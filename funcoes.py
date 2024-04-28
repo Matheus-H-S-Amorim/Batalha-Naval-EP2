@@ -24,12 +24,4 @@ def foi_derrotado(matriz):
         for item in linha: 
             if item=="N": 
                 return False 
-    return True 
-
-    
-    
-
-
-
-
-
+    return True
