@@ -21,6 +21,7 @@ paisSorteado = random.choice(list(PAISES))
 # Print do pais que Computador jogará com 
 print("Computador está alocando os navios de guerra do país {0}...".format(paisSorteado))
 print("Computador já está em posição de batalha")
+time.sleep(3)     # espera 3 seg 
 
 # Printar dicionario de paises 
 i = 1 
