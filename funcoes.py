@@ -1,4 +1,6 @@
 from dados import * 
+from game import *
+import random 
 
 #Função que cria o mapa
 def cria_mapa(N): 
@@ -40,3 +42,38 @@ def posicao_suporta(mapa,blocos,linha,coluna,vh):
         return True
     
     return True
+
+# Funcao que aloca navios no mapa 
+def aloca_navios(mapa,blocos): 
+    N = len(mapa)
+    for num in blocos: 
+        #sorteia linha, coluna e orientacao
+        linhaS = random.randint(0, N-1)
+        colunaS = random.randint(0, N-1)
+        vhS = random.choice(['h', 'v'])
+        # Verifica se sorteio é coerente com dimensões do mapa e caso não refaz sorteio
+        while posicao_suporta(mapa,num,linhaS,colunaS,vhS)== False: 
+            linhaS = random.randint(0, N-1)
+            colunaS = random.randint(0, N-1)
+            vhS = random.choice(['h', 'v'])
+        #Preenche mapa com localizações e orientações sorteadas
+        i = 0 
+        j = 0 
+        n = 0 
+        while n<num: 
+            if vhS=='v': 
+                i = n 
+            elif vhS=='h':
+                j = n 
+            mapa[linhaS+i][colunaS+j]='N'
+        
+            n+=1 
+    return mapa
+
+
+# Mostra próximos navios  ##### fazer primeiro item sumir a cada iteração
+def status_navios(PAISES): 
+    lista = []
+    for navio,blocos in PAISES[pais_jogador].items():
+        lista.append(navio)
+    return lista

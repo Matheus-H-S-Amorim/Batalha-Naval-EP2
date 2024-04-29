@@ -1,6 +1,9 @@
 from dados import * 
 import random 
 import time 
+from funcoes import *
+
+
 
 
 # Mensagem inicial do jogo
@@ -42,3 +45,27 @@ pais_jogador = lista_paises[num_pais_jogador-1]
 # Informa pais escolhido e instrui jogador a alocar seus navios 
 print("Você escolheu a nação {0}".format(pais_jogador))
 print("Agora é a sua vez de alocar os seus navios de guerra!")
+
+
+###### Testando execução ########
+
+# Cria mapa 
+Mapa_PC = cria_mapa(10)
+Mapa_Jog = cria_mapa(10)
+
+#testando como vai ficar 
+blocos = [1,2,3]
+print(aloca_navios(Mapa_PC,blocos))
+
+x = 'torpedeiro'
+y = 2 
+
+# Próximo navio ### fazer mostrar proximo navio 
+print('alocar: {0} ({1} blocos) '.format(x,y))
+
+# Próximos navios 
+print('próximos:',end="")
+lista_prox_navios = status_navios(PAISES)
+for item in lista_prox_navios: 
+    print(' ',item,end=",")
+
