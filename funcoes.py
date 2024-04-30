@@ -1,5 +1,4 @@
 from dados import * 
-from game import *
 import random 
 
 #Função que cria o mapa
@@ -72,7 +71,7 @@ def aloca_navios(mapa,blocos):
 
 
 # Mostra próximos navios  ##### fazer primeiro item sumir a cada iteração
-def status_navios(PAISES): 
+def status_navios(PAISES,pais_jogador): 
     lista = []
     for navio,blocos in PAISES[pais_jogador].items():
         lista.append(navio)

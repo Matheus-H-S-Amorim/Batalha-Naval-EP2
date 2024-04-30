@@ -1,12 +1,8 @@
 from dados import *
-from funcoes import * 
-
+from funcoes import *
 
 import random 
 import time 
-
-
-
 
 
 # Mensagem inicial do jogo
