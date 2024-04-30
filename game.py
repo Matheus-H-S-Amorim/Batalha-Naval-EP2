@@ -37,7 +37,7 @@ for pais,infos in PAISES.items():
 # Jogador escolhe numero de pais 
 num_pais_jogador= int(input("Qual o número da nação da sua frota?: "))
 
-# Transforma Dicionario em lista 
+# Transforma Dicionario de PAISES em lista 
 lista_paises = list(PAISES)
 pais_jogador = lista_paises[num_pais_jogador-1]
 
@@ -55,16 +55,41 @@ Mapa_Jog = cria_mapa(10)
 #testando como vai ficar 
 blocos = [1,2,3]
 print(aloca_navios(Mapa_PC,blocos))
+print("\n")
 
+
+# MOSTRAR MAPA DO PC com Letras e Numeros
+# printar letras em cima
+for letra in ALFABETO: 
+    print(" ",letra+" ",end="")
+    if letra == "J": 
+        break
+
+
+#printar mapa do PC
+for i in range (len(Mapa_PC)): 
+    print(str(i+1),end="")
+    for j in range(len(Mapa_PC)):
+        print(Mapa_PC[i][j]," ",end="")
+    print(str(i+1),end="")
+    print('\n')
+
+# Printar letras embaixo
+for letra in ALFABETO: 
+    print(" ",letra+" ",end="")
+    if letra == "J": 
+        break
+
+'''
+## Print pro usuario do tamanho do navio atual e navios
 x = 'torpedeiro'
 y = 2 
 
 # Próximo navio ### fazer mostrar proximo navio 
 print('alocar: {0} ({1} blocos) '.format(x,y))
-
 # Próximos navios 
 print('próximos:',end="")
 lista_prox_navios = status_navios(PAISES,pais_jogador)
 for item in lista_prox_navios: 
     print(' ',item,end=",")
-
+'''
