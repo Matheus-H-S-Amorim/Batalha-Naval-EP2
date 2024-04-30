@@ -76,7 +76,7 @@ for i in range (len(Mapa_PC)):
 
 # Printar letras embaixo
 for letra in ALFABETO: 
-    print(" ",letra+" ",end="")
+    print(" ",letra+"  ",end="")
     if letra == "J": 
         break
 

@@ -77,12 +77,10 @@ def status_navios(PAISES,pais_jogador):
         lista.append(navio)
     return lista
 
-
-# Mostra o mapa do Jogo 
+# Mostra mapa na situacao atual 
 def mostra_mapa(mapa,ALFABETO): 
-    
     # printar letras em cima
-    print("   ",end="")                        #pra alinhar letras pra direita 
+    print("   ",end="")           #pra alinhar letras pra direita 
     for letra in ALFABETO: 
         print(letra+"  ",end="")
         if letra == "J": 
@@ -97,7 +95,7 @@ def mostra_mapa(mapa,ALFABETO):
         print(str(i+1))
 
     # Printar letras embaixo
-    print("   ",end="")                       #pra alinhar letras pra direita 
+    print("   ",end="") #pra alinhar letras pra direita 
     for letra in ALFABETO: 
         print(letra+"  ",end="")
         if letra == "J": 
