@@ -12,57 +12,37 @@ blocos = [1,2,3]
 print(aloca_navios(Mapa_PC,blocos))
 print("\n")
 
+print("prog comecou")
 
 # MAPA PC
-# printar letras em cima
-print("   ",end="")           #pra alinhar letras pra direita 
-for letra in ALFABETO: 
-    print(letra+"  ",end="")
-    if letra == "J": 
-        break
-print('\n',end="")
+def mostra_mapa(mapa,ALFABETO): 
+    # printar letras em cima
+    print("   ",end="")           #pra alinhar letras pra direita 
+    for letra in ALFABETO: 
+        print(letra+"  ",end="")
+        if letra == "J": 
+            break
+    print('\n',end="")
 
-#printar mapa do PC
-for i in range (len(Mapa_PC)): 
-    print(str(i+1)," ", end="")
-    for j in range(len(Mapa_PC)):
-        print(Mapa_PC[i][j]," ",end="")
-    print(str(i+1))
+    #printar mapa do PC
+    for i in range (len(mapa)): 
+        print(str(i+1)," ", end="")
+        for j in range(len(mapa)):
+            print(mapa[i][j]," ",end="")
+        print(str(i+1))
 
-# Printar letras embaixo
-print("   ",end="") #pra alinhar letras pra direita 
-for letra in ALFABETO: 
-    print(letra+"  ",end="")
-    if letra == "J": 
-        break
-
-print("\n")
-
-# MAPA JOGADOR
-# printar letras em cima
-print("   ",end="") #pra alinhar letras pra direita 
-for letra in ALFABETO: 
-    print(letra+"  ",end="")
-    if letra == "J": 
-        break
-print('\n',end="")
-
-#printar mapa do PC
-for i in range (len(Mapa_Jog)): 
-    print(str(i+1)," ", end="")
-    for j in range(len(Mapa_Jog)):
-        print(Mapa_Jog[i][j]," ",end="")
-    print(str(i+1))
-
-# Printar letras embaixo
-print("   ",end="") #pra alinhar letras pra direita 
-for letra in ALFABETO: 
-    print(letra+"  ",end="")
-    if letra == "J": 
-        break
+    # Printar letras embaixo
+    print("   ",end="") #pra alinhar letras pra direita 
+    for letra in ALFABETO: 
+        print(letra+"  ",end="")
+        if letra == "J": 
+            break
+    print("\n")
+    return ""
 
 
 
+print(mostra_mapa(Mapa_Jog,ALFABETO))
 
 
 

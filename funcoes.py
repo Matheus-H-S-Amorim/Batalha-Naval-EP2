@@ -76,3 +76,31 @@ def status_navios(PAISES,pais_jogador):
     for navio,blocos in PAISES[pais_jogador].items():
         lista.append(navio)
     return lista
+
+
+# Mostra o mapa do Jogo 
+def mostra_mapa(mapa,ALFABETO): 
+    
+    # printar letras em cima
+    print("   ",end="")                        #pra alinhar letras pra direita 
+    for letra in ALFABETO: 
+        print(letra+"  ",end="")
+        if letra == "J": 
+            break
+    print('\n',end="")
+
+    #printar mapa do PC
+    for i in range (len(mapa)): 
+        print(str(i+1)," ", end="")
+        for j in range(len(mapa)):
+            print(mapa[i][j]," ",end="")
+        print(str(i+1))
+
+    # Printar letras embaixo
+    print("   ",end="")                       #pra alinhar letras pra direita 
+    for letra in ALFABETO: 
+        print(letra+"  ",end="")
+        if letra == "J": 
+            break
+    print("\n")
+    return ""
