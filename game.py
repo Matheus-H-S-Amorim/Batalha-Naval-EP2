@@ -58,8 +58,13 @@ print(aloca_navios(Mapa_PC,blocos))
 print("\n")
 
 
-# MOSTRAR MAPA DO PC com Letras e Numeros
-
+# Próximo navio ### fazer mostrar proximo navio 
+print('alocar: {0} ({1} blocos) '.format(x,y))
+# Próximos navios 
+print('próximos:',end="")
+lista_prox_navios = status_navios(PAISES,pais_jogador)
+for item in lista_prox_navios: 
+    print(' ',item,end=",")
 
 
 

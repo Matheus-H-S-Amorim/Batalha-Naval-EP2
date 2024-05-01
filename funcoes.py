@@ -102,3 +102,28 @@ def mostra_mapa(mapa,ALFABETO):
             break
     print("\n")
     return ""
+
+# Preenche MAPA do JOGADOR 
+def Preenche_MAPA_JOG(PAISES,Mapa_Jog,ALFABETO,pais_jogador):
+    lista_blocos_JOG = []                                   # Cria lista de blocos/navios pro Jogador 
+    for navio,blocos in PAISES[pais_jogador].items():
+        lista_blocos_JOG.append(blocos)
+    print("lista blocos: ",lista_blocos_JOG)
+    
+    for i in range(len(lista_blocos_JOG)):                          #Perguntar pro JOG onde quer por navios
+        linha_jog = int(input( "Informe a linha: ")) 
+        letra_jog = int(input( "Informe a letra: "))
+        vh_jog = input( "Informe a orientação[v/h]: ")
+        i = 0 
+        j = 0 
+        n = 0 
+        for bloco_JOG in lista_blocos_JOG:
+            while n<bloco_JOG: 
+                if vh_jog=='v': 
+                    i = n 
+                elif vh_jog=='h':
+                    j = n 
+                Mapa_Jog[linha_jog+i][letra_jog+j]='N'
+                n+=1 
+        print(mostra_mapa(Mapa_Jog, ALFABETO))
+    return ""
