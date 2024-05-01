@@ -1,8 +1,10 @@
+from funcoes import * 
 from dados import *
-from funcoes import *
-
-import random 
 import time 
+
+# Cria mapas para PC e JOGADOR
+Mapa_PC = cria_mapa(10)
+Mapa_Jog = cria_mapa(10)
 
 # tempo de espera
 t = 0.5
@@ -19,7 +21,6 @@ time.sleep(t)     # espera
 
 # Sorteando pais do Computador 
 paisSorteado = random.choice(list(PAISES))
-
 
 # Print do pais do Computador 
 print("Computador está alocando os navios de guerra do país {0}...".format(paisSorteado))
@@ -46,29 +47,26 @@ pais_jogador = lista_paises[num_pais_jogador-1]
 print("Você escolheu a nação {0}".format(pais_jogador))
 print("Agora é a sua vez de alocar os seus navios de guerra!")
 
-###### Testando execução ########
 
-# Cria mapas para PC e JOGADOR
-Mapa_PC = cria_mapa(10)
-Mapa_Jog = cria_mapa(10)
+# fazendo lista de blocos 
+lista_blocos_PC = []
+for navio,blocos in PAISES[paisSorteado].items():
+    lista_blocos_PC.append(blocos)
 
-#testando como vai ficar 
-blocos = [1,2,3]
+
+
 print(aloca_navios(Mapa_PC,blocos))
 print("\n")
 
 
-# MOSTRAR MAPA DO PC com Letras e Numeros
+#EX de mostrar mapa
+print('COMPUTADOR - {0}'.format(paisSorteado))
+print(mostra_mapa(Mapa_PC,ALFABETO))
+
+print('JOGADOR - {0}'.format(pais_jogador))
+print(mostra_mapa(Mapa_Jog,ALFABETO))
 
 
-
-
-
-
-
-
-
-'''
 ## Print pro usuario do tamanho do navio atual e navios
 x = 'torpedeiro'
 y = 2 
@@ -80,4 +78,24 @@ print('próximos:',end="")
 lista_prox_navios = status_navios(PAISES,pais_jogador)
 for item in lista_prox_navios: 
     print(' ',item,end=",")
-'''
+
+
+# Preenche mapa do Jogador 
+num = 2
+
+while True: 
+    linha_jog = int(input( "Informe a linha: "))
+    letra_jog = int(input( "Informe a letra: "))
+    vh_jog = input( "Informe a orientação[v/h]: ")
+    i = 0 
+    j = 0 
+    n = 0 
+    while n<num: 
+        if vh_jog=='v': 
+            i = n 
+        elif vh_jog=='h':
+            j = n 
+        Mapa_Jog[linha_jog+i][letra_jog+j]='N'
+        print(mostra_mapa(Mapa_Jog, ALFABETO))
+        n+=1 
+ 

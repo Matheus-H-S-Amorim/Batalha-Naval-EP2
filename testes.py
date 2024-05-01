@@ -8,7 +8,8 @@ Mapa_PC = cria_mapa(10)
 Mapa_Jog = cria_mapa(10)
 
 #testando como vai ficar 
-blocos = [1,2,3]
+
+
 print(aloca_navios(Mapa_PC,blocos))   # Fazer receber do dic de paises 
 print("\n")
 
@@ -46,6 +47,7 @@ for item in lista_prox_navios:
 
 # Preenche mapa do Jogador 
 num = 2
+
 while True: 
     linha_jog = int(input( "Informe a linha: "))
     letra_jog = int(input( "Informe a letra: "))
@@ -61,5 +63,4 @@ while True:
         Mapa_Jog[linha_jog+i][letra_jog+j]='N'
         print(mostra_mapa(Mapa_Jog, ALFABETO))
         n+=1 
-        i+=1 
-        j+=1 
+ 
