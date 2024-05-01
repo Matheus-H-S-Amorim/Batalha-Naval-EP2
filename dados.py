@@ -56,6 +56,7 @@ CORES = {
     'red': '\u001b[31m',
     'black': '\u001b[30m',
     'green': '\u001b[32m',
+    'green2': '\033[42m',
     'yellow': '\u001b[33m',
     'blue': '\u001b[34m',
     'magenta': '\u001b[35m',

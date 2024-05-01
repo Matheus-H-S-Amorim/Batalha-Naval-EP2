@@ -103,8 +103,9 @@ def mostra_mapa(mapa,ALFABETO):
     print("\n")
     return ""
 
-# Preenche MAPA do JOGADOR 
+# Preenche MAPA do JOGADOR   
 def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
+    N = poe_cor('green2',' ')
     lista_blocos_JOG = []                                         # Cria lista de blocos/navios pro Jogador 
     lista_navios_JOG = []                          
     for navio,blocos in PAISES[pais_jogador].items():
@@ -130,7 +131,7 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
                 i = n 
             elif vh_jog=='h':
                 j = n 
-            Mapa_Jog[linha_jog+i][letra_jog+j]='N'
+            Mapa_Jog[linha_jog+i][letra_jog+j]= N
             n+=1 
         
         print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
@@ -144,9 +145,6 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
 
 
 # Funcao que poe cores no texto 
-def poe_cores(cor,texto): 
-    string = Cores[cor]+texto+Cores['reset']
+def poe_cor(cor,texto): 
+    string = CORES[cor]+texto+CORES['reset']
     return string 
-
-print(poe_cores('red','bala'))
-print(poe_cores('yellow','doce'))
