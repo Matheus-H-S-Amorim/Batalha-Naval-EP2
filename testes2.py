@@ -3,6 +3,7 @@ from dados import *
 import time 
 
 # Cria mapas para PC e JOGADOR
+Mapa_PC_oculto = cria_mapa(10)
 Mapa_PC = cria_mapa(10)
 Mapa_Jog = cria_mapa(10)
 
@@ -56,14 +57,28 @@ for navio,blocos in PAISES[paisSorteado].items():
 aloca_navios(Mapa_PC,lista_blocos_PC)                  # aloca navios(blocos) no Mapa do pc
 
 
-#Mostra MAPA_PC e MAPA_JOGADOR
+#Mostra MAPA_PC_Oculto e MAPA_JOGADOR
 print('COMPUTADOR - {0}'.format(paisSorteado))
-print(mostra_mapa(Mapa_PC,ALFABETO))
+print(mostra_mapa(Mapa_PC_oculto,ALFABETO))
 
 print('JOGADOR - {0}'.format(pais_jogador))
 print(mostra_mapa(Mapa_Jog,ALFABETO))
 
 
-# Preenche MAPA_JOGADOR 
-Preenche_MAPA_JOG(PAISES,Mapa_Jog,ALFABETO,pais_jogador)
- 
+# Preenche MAPA_JOGADOR (fica em looping até acabar navios da frota)
+Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador)
+
+# Falar que jogo vai começar 
+print(mostra_mapa(Mapa_PC_oculto,ALFABETO))
+print(mostra_mapa(Mapa_Jog,ALFABETO))
+print("Iniciando batalha naval")
+time.sleep(t*2)     
+print("5")
+time.sleep(t*2)     
+print("4")
+time.sleep(t*2)     
+print("3")
+time.sleep(t*2)     
+print("2")
+time.sleep(t*2)     
+print("1")

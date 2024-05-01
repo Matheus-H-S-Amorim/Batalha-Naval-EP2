@@ -104,26 +104,49 @@ def mostra_mapa(mapa,ALFABETO):
     return ""
 
 # Preenche MAPA do JOGADOR 
-def Preenche_MAPA_JOG(PAISES,Mapa_Jog,ALFABETO,pais_jogador):
-    lista_blocos_JOG = []                                   # Cria lista de blocos/navios pro Jogador 
+def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
+    lista_blocos_JOG = []                                         # Cria lista de blocos/navios pro Jogador 
+    lista_navios_JOG = []                          
     for navio,blocos in PAISES[pais_jogador].items():
         lista_blocos_JOG.append(blocos)
-    print("lista blocos: ",lista_blocos_JOG)
+        lista_navios_JOG.append(navio)
     
-    for i in range(len(lista_blocos_JOG)):                          #Perguntar pro JOG onde quer por navios
+        
+    #Perguntar pro JOG onde quer por navios
+    k = 0 
+    for bloco_JOG in lista_blocos_JOG:
+        print("alocar: {0} ({1} blocos)\n".format(lista_navios_JOG[k],lista_blocos_JOG[k]))     # Informa navio a ser alocado 
+
         linha_jog = int(input( "Informe a linha: ")) 
         letra_jog = int(input( "Informe a letra: "))
         vh_jog = input( "Informe a orientação[v/h]: ")
+        print("Navio alocado!\n")
+
         i = 0 
         j = 0 
         n = 0 
-        for bloco_JOG in lista_blocos_JOG:
-            while n<bloco_JOG: 
-                if vh_jog=='v': 
-                    i = n 
-                elif vh_jog=='h':
-                    j = n 
-                Mapa_Jog[linha_jog+i][letra_jog+j]='N'
-                n+=1 
+        while n<bloco_JOG: 
+            if vh_jog=='v': 
+                i = n 
+            elif vh_jog=='h':
+                j = n 
+            Mapa_Jog[linha_jog+i][letra_jog+j]='N'
+            n+=1 
+        
+        print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
         print(mostra_mapa(Mapa_Jog, ALFABETO))
+        
+        k+=1 # para informar sempre o proximo navio da lista 
+    print("\nTodos os navios foram alocados!")
+
     return ""
+
+
+
+# Funcao que poe cores no texto 
+def poe_cores(cor,texto): 
+    string = Cores[cor]+texto+Cores['reset']
+    return string 
+
+print(poe_cores('red','bala'))
+print(poe_cores('yellow','doce'))
