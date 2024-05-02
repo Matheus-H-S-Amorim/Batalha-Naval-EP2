@@ -113,11 +113,13 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
     for bloco_JOG in lista_blocos_JOG:
         print("alocar: {0} ({1} blocos)\n".format(lista_navios_JOG[k],lista_blocos_JOG[k]))     # Informa navio a ser alocado 
         
-        linha_jog = int(input( "Informe a linha: ")) - 1        
 
         letra_jog = input( "Informe a letra: ")
         letra_jog = letra_jog.upper()
         letra_jog = ALFABETO.find(letra_jog)
+
+        linha_jog = int(input( "Informe a linha: ")) - 1        
+
 
         vh_jog = input( "Informe a orientação[v/h]: ")
         print("Navio alocado!\n")
@@ -170,7 +172,8 @@ def JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
         Mapa_PC_oculto[linha_jog][letra_jog] = A
         resultado = "ÁGUA!"
     
-    coordenada = str(letra_jog+1)+str(linha_jog+1)
+    letra_jog = ALFABETO[letra_jog]
+    coordenada =letra_jog + str(linha_jog+1)
     print("Jogador ---->>>>   {0}     {1}".format(coordenada,resultado))
 
     print('COMPUTADOR - {0}'.format(paisSorteado))
@@ -208,10 +211,12 @@ def PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
         Mapa_Jog[linhaS][colunaS] = X
         resultado = "BOOOOMM!!!"
     else: 
-        Mapa_Jog[linhaS][colunaS] = A
+        Mapa_Jog[linhaS][colunaS] = A 
         resultado = "ÁGUA!"
     
-    coordenada = str(colunaS+1)+str(linhaS+1)
+    colunaS = ALFABETO[colunaS]
+    coordenada = colunaS + str(linhaS+1)
+    
     print("Computador ---->>>>   {0}     {1}".format(coordenada,resultado))
 
     print('COMPUTADOR - {0}'.format(paisSorteado))

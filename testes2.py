@@ -109,4 +109,3 @@ while foi_derrotado(Mapa_PC)==False and foi_derrotado(Mapa_Jog)==False:
     print("pc atacando.............")
     PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado)
 
-1
