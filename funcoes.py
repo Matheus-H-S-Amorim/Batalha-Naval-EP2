@@ -113,13 +113,20 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
     for bloco_JOG in lista_blocos_JOG:
         print("alocar: {0} ({1} blocos)\n".format(lista_navios_JOG[k],lista_blocos_JOG[k]))     # Informa navio a ser alocado 
         
-
         letra_jog = input( "Informe a letra: ")
         letra_jog = letra_jog.upper()
+        while letra_jog not in ALFABETO: 
+            print("Resposta inválida. Digite uma Letra válida.")
+            letra_jog = input( "Informe a letra: ")
+            letra_jog = letra_jog.upper()
+
         letra_jog = ALFABETO.find(letra_jog)
 
-        linha_jog = int(input( "Informe a linha: ")) - 1        
-
+        linha_jog = int(input( "Informe a linha: ")) - 1    
+        while linha_jog not in range(1,10):  
+            print("Resposta inválida. Digite uma Linha válida.")
+            linha_jog = int(input( "Informe a linha: ")) - 1    
+        
 
         vh_jog = input( "Informe a orientação[v/h]: ")
         print("Navio alocado!\n")
