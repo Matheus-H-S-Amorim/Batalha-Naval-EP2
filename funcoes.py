@@ -123,13 +123,16 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
         letra_jog = ALFABETO.find(letra_jog)
 
         linha_jog = int(input( "Informe a linha: ")) - 1    
-        while linha_jog not in range(1,10):  
-            print("Resposta inválida. Digite uma Linha válida.")
-            linha_jog = int(input( "Informe a linha: ")) - 1    
-        
 
         vh_jog = input( "Informe a orientação[v/h]: ")
+
+        while linha_jog not in range(0,10) or posicao_suporta(Mapa_Jog,bloco_JOG,linha_jog,letra_jog,vh_jog)==False:  
+            print("Resposta inválida. Digite uma Linha válida.")
+            linha_jog = int(input( "Informe a linha: ")) - 1    
+            vh_jog = input( "Informe a orientação[v/h]: ")
+
         print("Navio alocado!\n")
+
         i = 0 
         j = 0 
         n = 0 
@@ -139,6 +142,7 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
             elif vh_jog=='h':
                 j = n 
             Mapa_Jog[linha_jog+i][letra_jog+j]= NN
+            print(i)  # tirar dps
             n+=1 
         
         print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
