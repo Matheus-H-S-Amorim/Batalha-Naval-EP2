@@ -118,12 +118,15 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
     k = 0 
     for bloco_JOG in lista_blocos_JOG:
         print("alocar: {0} ({1} blocos)\n".format(lista_navios_JOG[k],lista_blocos_JOG[k]))     # Informa navio a ser alocado 
+        
+        linha_jog = int(input( "Informe a linha: ")) - 1        
 
-        linha_jog = int(input( "Informe a linha: ")) - 1 
-        letra_jog = int(input( "Informe a letra: "))  - 1 
+        letra_jog = input( "Informe a letra: ")
+        letra_jog = letra_jog.upper()
+        letra_jog = ALFABETO.find(letra_jog)
+
         vh_jog = input( "Informe a orientação[v/h]: ")
         print("Navio alocado!\n")
-
         i = 0 
         j = 0 
         n = 0 
@@ -160,7 +163,11 @@ def JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
     #Perguntar pro JOG onde quer ATACAR
     print("Coordenadas do seu disparo")
     linha_jog = int(input( "Linha: ")) - 1
-    letra_jog = int(input( "Letra: ")) - 1
+
+    letra_jog = input( "Letra: ")
+    letra_jog = letra_jog.upper()
+    letra_jog = ALFABETO.find(letra_jog)
+
 
     if Mapa_PC[linha_jog][letra_jog] ==NN:
         Mapa_PC_oculto[linha_jog][letra_jog] = X
@@ -174,7 +181,7 @@ def JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
 
     print('COMPUTADOR - {0}'.format(paisSorteado))
     print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
-
+ 
     print('JOGADOR - {0}'.format(pais_jogador))
     print(mostra_mapa(Mapa_Jog, ALFABETO))
         
@@ -203,7 +210,7 @@ def PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
         colunaS = random.randint(0, N-1)
         vhS = random.choice(['h', 'v'])
 
-    if Mapa_Jog[linhaS][colunaS] ==NN:
+    if Mapa_Jog[linhaS][colunaS] == NN:
         Mapa_Jog[linhaS][colunaS] = X
         resultado = "BOOOOMM!!!"
     else: 

@@ -68,7 +68,6 @@ print(mostra_mapa(Mapa_Jog,ALFABETO))
 # Preenche MAPA_JOGADOR (fica em looping até acabar navios da frota)
 Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador)
 
-
 # Falar que jogo vai começar 
 print(mostra_mapa(Mapa_PC_oculto,ALFABETO))
 print(mostra_mapa(Mapa_Jog,ALFABETO))
@@ -110,3 +109,4 @@ while foi_derrotado(Mapa_PC)==False and foi_derrotado(Mapa_Jog)==False:
     print("pc atacando.............")
     PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado)
 
+1
