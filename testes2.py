@@ -82,3 +82,13 @@ time.sleep(t*2)
 print("2")
 time.sleep(t*2)     
 print("1")
+
+print("colinha abaixo")
+print(mostra_mapa(Mapa_PC,ALFABETO))
+
+
+print("jogador atacando.............")
+JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado)
+
+print("pc atacando.............")
+PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado)

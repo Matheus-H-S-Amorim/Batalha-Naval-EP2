@@ -45,6 +45,7 @@ def posicao_suporta(mapa,blocos,linha,coluna,vh):
 # Funcao que aloca navios no mapa 
 def aloca_navios(mapa,blocos): 
     N = len(mapa)
+    NN= poe_cor('green2',' ')
     for num in blocos: 
         #sorteia linha, coluna e orientacao
         linhaS = random.randint(0, N-1)
@@ -64,7 +65,7 @@ def aloca_navios(mapa,blocos):
                 i = n 
             elif vhS=='h':
                 j = n 
-            mapa[linhaS+i][colunaS+j]='N'
+            mapa[linhaS+i][colunaS+j]=NN
         
             n+=1 
     return mapa
@@ -105,7 +106,7 @@ def mostra_mapa(mapa,ALFABETO):
 
 # Preenche MAPA do JOGADOR   
 def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
-    N = poe_cor('green2',' ')
+    NN = poe_cor('green2',' ')
     lista_blocos_JOG = []                                         # Cria lista de blocos/navios pro Jogador 
     lista_navios_JOG = []                          
     for navio,blocos in PAISES[pais_jogador].items():
@@ -118,8 +119,8 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
     for bloco_JOG in lista_blocos_JOG:
         print("alocar: {0} ({1} blocos)\n".format(lista_navios_JOG[k],lista_blocos_JOG[k]))     # Informa navio a ser alocado 
 
-        linha_jog = int(input( "Informe a linha: ")) 
-        letra_jog = int(input( "Informe a letra: "))
+        linha_jog = int(input( "Informe a linha: ")) - 1 
+        letra_jog = int(input( "Informe a letra: "))  - 1 
         vh_jog = input( "Informe a orientação[v/h]: ")
         print("Navio alocado!\n")
 
@@ -131,7 +132,7 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
                 i = n 
             elif vh_jog=='h':
                 j = n 
-            Mapa_Jog[linha_jog+i][letra_jog+j]= N
+            Mapa_Jog[linha_jog+i][letra_jog+j]= NN
             n+=1 
         
         print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
@@ -148,3 +149,77 @@ def Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador):
 def poe_cor(cor,texto): 
     string = CORES[cor]+texto+CORES['reset']
     return string 
+
+
+# Funcao JOGADOR ataca COMPUTADOR 
+def JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado):
+    NN= poe_cor('green2',' ')
+    X = poe_cor('red2',' ')
+    A = poe_cor('blue2',' ')
+        
+    #Perguntar pro JOG onde quer ATACAR
+    print("Coordenadas do seu disparo")
+    linha_jog = int(input( "Linha: ")) - 1
+    letra_jog = int(input( "Letra: ")) - 1
+
+    if Mapa_PC[linha_jog][letra_jog] ==NN:
+        Mapa_PC_oculto[linha_jog][letra_jog] = X
+        resultado = "BOOOOMM!!!"
+    else: 
+        Mapa_PC[linha_jog][letra_jog] = A
+        resultado = "ÁGUA!"
+    
+    coordenada = str(letra_jog+1)+str(linha_jog+1)
+    print("Jogador ---->>>>   {0}     {1}".format(coordenada,resultado))
+
+    print('COMPUTADOR - {0}'.format(paisSorteado))
+    print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
+
+    print('JOGADOR - {0}'.format(pais_jogador))
+    print(mostra_mapa(Mapa_Jog, ALFABETO))
+        
+
+
+    return ""
+
+
+
+
+# Funcao COMPUTADOR ataca JOGADOR
+def PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado):
+    N = len(Mapa_Jog)
+    NN= poe_cor('green2',' ')
+    X = poe_cor('red2',' ')
+    A = poe_cor('blue2',' ')        
+
+    #sorteia linha, coluna e orientacao
+    linhaS = random.randint(0, N-1)
+    colunaS = random.randint(0, N-1)
+    vhS = random.choice(['h', 'v'])
+
+    # Verifica se sorteio é coerente com dimensões do mapa e caso não refaz sorteio
+    while posicao_suporta(Mapa_Jog,1,linhaS,colunaS,vhS)== False: 
+        linhaS = random.randint(0, N-1)
+        colunaS = random.randint(0, N-1)
+        vhS = random.choice(['h', 'v'])
+
+    if Mapa_Jog[linhaS][colunaS] ==NN:
+        Mapa_Jog[linhaS][colunaS] = X
+        resultado = "BOOOOMM!!!"
+    else: 
+        Mapa_Jog[linhaS][colunaS] = A
+        resultado = "ÁGUA!"
+    
+    coordenada = str(colunaS+1)+str(linhaS+1)
+    print("Computador ---->>>>   {0}     {1}".format(coordenada,resultado))
+
+    print('COMPUTADOR - {0}'.format(paisSorteado))
+    print(mostra_mapa(Mapa_PC_oculto, ALFABETO))
+    
+    print('JOGADOR - {0}'.format(pais_jogador))
+    print(mostra_mapa(Mapa_Jog, ALFABETO))
+    
+        
+   
+
+    return ""
