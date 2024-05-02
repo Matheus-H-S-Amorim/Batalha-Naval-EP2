@@ -166,7 +166,7 @@ def JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,pa
         Mapa_PC_oculto[linha_jog][letra_jog] = X
         resultado = "BOOOOMM!!!"
     else: 
-        Mapa_PC[linha_jog][letra_jog] = A
+        Mapa_PC_oculto[linha_jog][letra_jog] = A
         resultado = "ÁGUA!"
     
     coordenada = str(letra_jog+1)+str(linha_jog+1)

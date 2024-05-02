@@ -68,6 +68,7 @@ print(mostra_mapa(Mapa_Jog,ALFABETO))
 # Preenche MAPA_JOGADOR (fica em looping até acabar navios da frota)
 Preenche_MAPA_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,ALFABETO,pais_jogador)
 
+
 # Falar que jogo vai começar 
 print(mostra_mapa(Mapa_PC_oculto,ALFABETO))
 print(mostra_mapa(Mapa_Jog,ALFABETO))
@@ -83,6 +84,12 @@ print("2")
 time.sleep(t*2)     
 print("1")
 
+########## so vendo oq tem nas matrizes 
+#print('mapajog:',Mapa_Jog)
+#print('mapapc: ,',Mapa_PC)
+#print('mapapcoculto :',Mapa_PC_oculto)
+
+
 print("colinha abaixo")
 print(mostra_mapa(Mapa_PC,ALFABETO))
 
@@ -92,3 +99,4 @@ JOG_Ataca_PC(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSo
 
 print("pc atacando.............")
 PC_Ataca_JOG(PAISES,Mapa_Jog,Mapa_PC_oculto,Mapa_PC,ALFABETO,pais_jogador,paisSorteado)
+
