@@ -71,12 +71,6 @@ def aloca_navios(mapa,blocos):
     return mapa
 
 
-# Mostra próximos navios  ##### fazer primeiro item sumir a cada iteração
-def status_navios(PAISES,pais_jogador): 
-    lista = []
-    for navio,blocos in PAISES[pais_jogador].items():
-        lista.append(navio)
-    return lista
 
 # Mostra mapa na situacao atual 
 def mostra_mapa(mapa,ALFABETO): 
