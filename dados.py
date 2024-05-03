@@ -6,7 +6,7 @@ CONFIGURACAO = {
     'torpedeiro': 3,
     'cruzador': 2,
     'couracado': 4
-}
+} 
 
 # frotas de cada pais
 PAISES =  {
